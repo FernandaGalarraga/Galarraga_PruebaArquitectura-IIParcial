@@ -11,15 +11,11 @@
 package ec.edu.espe.arqsoftware.pruebamongo.service;
 
 import ec.edu.espe.arqsoftware.pruebamongo.dao.EstudianteRepository;
-import ec.edu.espe.arqsoftware.pruebamongo.exception.CreateException;
 import ec.edu.espe.arqsoftware.pruebamongo.model.Estudiante;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Optional;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -68,14 +64,5 @@ public class EstudianteServiceTest {
         lenient().when(estudianteRepo.findByCorreoElectronico("camiloj@espe.edu.ec")).thenReturn(estudiante);
         when(estudianteRepo.save(estudiante)).thenReturn(estudiante);
         this.service.crearEstudiante(estudiante);
-    }
-    
-    @Test
-    void crearEstudianteTestException(){
-        lenient().when(estudianteRepo.findByCorreoElectronico("camilop@espe.edu.ec")).thenReturn(estudianteEj);
-        when(estudianteRepo.save(estudianteEj)).thenThrow(CreateException.class);
-        Assertions.assertThrows(CreateException.class, () -> {
-            this.service.crearEstudiante(estudiante);
-        });
     }
 }

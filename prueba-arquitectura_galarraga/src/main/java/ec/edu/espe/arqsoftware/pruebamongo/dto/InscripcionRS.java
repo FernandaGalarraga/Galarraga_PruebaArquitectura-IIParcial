@@ -8,12 +8,18 @@
  * Contributors:
  *    mafer - initial API and implementation and/or initial documentation
  */
-package ec.edu.espe.arqsoftware.pruebamongo.dao;
+package ec.edu.espe.arqsoftware.pruebamongo.dto;
 
-import ec.edu.espe.arqsoftware.pruebamongo.model.InscripcionCurso;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import lombok.Builder;
+import lombok.Data;
 
-
-public interface InscripcionRepository extends MongoRepository<InscripcionCurso, String>{
-    InscripcionCurso findByCodigoCursoAndCorreoEstudiante(String codigo, String correo);
+@Data
+@Builder
+public class InscripcionRS {
+    
+    private String nombreEstudiante;
+    
+    private String nombreCurso;
+    
+    private Integer duracionCurso;
 }

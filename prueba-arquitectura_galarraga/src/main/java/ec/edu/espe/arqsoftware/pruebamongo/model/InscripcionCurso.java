@@ -10,6 +10,7 @@
  */
 package ec.edu.espe.arqsoftware.pruebamongo.model;
 
+import java.time.LocalDateTime;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -21,7 +22,6 @@ public class InscripcionCurso {
     String id;
     String nombre;
     String correoEstudiante;
-    String fechaNacimiento;
     String codigoCurso;
-    String fechaInscripcion;
+    LocalDateTime fechaInscripcion;
 }
